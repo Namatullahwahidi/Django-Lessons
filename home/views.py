@@ -23,6 +23,7 @@ class HomeView(TemplateView):
         return render(request, self.template_name, args)
 
     def post(self, request):
+        print("Namatullah")
         form = HomeForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
