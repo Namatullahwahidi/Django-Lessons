@@ -1,0 +1,26 @@
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+{% block Header %}
+    <div class="container" style="text-align: center">
+         <h1>Admin's Profile</h1>
+    </div>
+{% endblock %}
+{% block MainContent %}
+      <div class="container" style="padding-left: 200px;padding-right: 200px;
+                                          padding-top: 50px;padding-bottom: 50px">
+        <p>User  Name : {{ user }}</p>
+        <p>First Name : {{ user.first_name }}</p>
+        <p>Last  Name : {{ user.last_name }}</p>
+        <p>Email Address : {{ user.email }}</p>
+        <p>Password :   {{ user.password }}</p>
+        <p>Description : {{ user.profile.descripton }}</p>
+        <p>City : {{ user.profile.city }}</p>
+        <p>Phone : {{ user.profile.phone }} </p>
+        <p>Website : {{ user.profile.website }}</p>
+        <img src="{{ user.profile.image.url }}">
+        <a href="{{ user.profile.image.url }}">Image</a>
+
+    </div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

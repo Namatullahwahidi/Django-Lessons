@@ -1,0 +1,19 @@
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+{% block Header %}
+    <div class="container" style="text-align: center">
+         <h1>Admin's profile edit</h1>
+    </div>
+{% endblock %}
+{% block MainContent %}
+    <div class="container" style="padding-left: 200px;padding-right: 200px;
+                                          padding-top: 50px;padding-bottom: 50px">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" name="edit">Edit</button>
+        </form>
+    </div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

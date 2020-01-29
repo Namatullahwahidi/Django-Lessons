@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block TopNav%}
+
+          <div class="col-12 bg-dark py-2 d-md-block d-none">
+              <div class="row">
+                     {% if user.is_authenticated %}
+                                <div class="col-auto mr-auto">
+                                    <ul class="top-nav">
+                                        <li>
+                                            <a href="{% url 'account:view_profile' %}"><i class="fas fa-address-card mr-2"></i>View Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'account:edit_profile' %}"><i class="fas fa-user-edit mr-2"></i>Edit Profile</a>
+                                        </li>
+                                         <li>
+                                            <a href="{% url 'account:password_change' %}"><i class="fas fa-key mr-2"></i>Password Change</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'home:home' %}"><i class="fa fa-envelope mr-2"></i>Home Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'account:home' %}"><i class="fa fa-envelope mr-2"></i>Account Home</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-auto">
+                                    <ul class="top-nav">
+                                       <li>
+                                            <a href="{% url 'account:logout' %}"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                   {% else %}
+                              <div class="col-auto mr-auto">
+                                    <ul class="top-nav">
+                                        <li>
+                                            <a href="tel:+123-456-7890"><i class="fa fa-phone-square mr-2"></i>+123-456-7890</a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:mail@ecom.com"><i class="fa fa-envelope mr-2"></i>mail@ecom.com</a>
+                                        </li>
+                                         <li>
+                                            <a href="{% url 'account:password_reset' %}"><span class="fa-passwd-reset fa-stack"
+                                                                                       style="font-size: 8px">
+                                                  <i class="fa fa-undo fa-stack-2x"></i>
+                                                  <i class="fa fa-lock fa-stack-1x"></i>
+                                                </span>Passwrod Reset
+                                            </a>
+                                        </li>
+                                    </ul>
+                              </div>
+                              <div class="col-auto">
+                                    <ul class="top-nav">
+                                        <li>
+                                            <a href="{% url 'account:register_user' %}"><i class="fas fa-user-edit mr-2"></i>Register</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'account:login' %}"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
+                                        </li>
+                                    </ul>
+                              </div>
+                   {% endif %}
+              </div>
+          </div>
+{% endblock %}
+{% block Header %}
+    <div class="container" style="text-align: center">
+         <h1>Home Page</h1>
+    </div>
+{% endblock %}
+{% block MainContent %}
+    <div class="container">
+        Home Page
+    </div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

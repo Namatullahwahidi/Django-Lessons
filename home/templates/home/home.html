@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+{% block MainContent %}
+
+     <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+                <form method="post">
+                    {% csrf_token %}
+                    <h3>Post</h3>
+                    {{ form.post}}<br>
+                    <button class="btn btn-outline-success" type="submit" >Submit</button>
+                </form>
+                <P style="padding-left:40px">{{ text }}</P>
+                {% for post in posts %}
+
+                    <h1>{{ post.post }}</h1>
+                    <p>Posted By:{{ post.user.get_full_name }} updated on {{ post.updated }} and created on{{ post.created }}</p>
+
+                {% endfor %}
+         </div>
+         <div class="col-md-4" style="margin-top: 40px">
+             <h1>Other people</h1>
+              {% for user in users %}
+                    <h3><a href="{% url 'account:view_profile_with_pk' pk=user.pk %}">{{ user.username }}</a></h3>
+              {% endfor %}
+
+          <h2>Friends</h2>
+        {% for friend in friends %}
+            <a href="{% url 'accounts:view_profile_with_pk' pk=friend.pk %}">
+                <h3>{{ friend.username }}</h3>
+            </a>
+            <a href="{% url 'home:change_friends' operation='remove' pk=friend.pk %}">
+            <button type="button" class="btn btn-default">Remove Friend</button>
+            </a>
+        {% endfor %}
+         </div>
+        </div>
+    </div>
+
+{% endblock %}

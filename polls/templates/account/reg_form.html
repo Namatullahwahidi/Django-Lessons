@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+{% block Header %}
+    <div class="container" style="text-align: center">
+         <h1>Admin's Registration</h1>
+    </div>
+{% endblock %}
+{% block MainContent %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="container" style="padding-left: 200px;padding-right: 200px;
+                                          padding-top: 50px;padding-bottom: 50px">
+                 {{ form.username|as_crispy_field }}
+                 {{ form.first_name|as_crispy_field }}
+                 {{ form.last_name|as_crispy_field }}
+                 {{ form.password1|as_crispy_field }}
+                 {{ form.password2|as_crispy_field }}
+                 {{ form.email|as_crispy_field }}
+                <button type="submit" name="login">Register</button>
+            </div>
+
+        </form>
+    </div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

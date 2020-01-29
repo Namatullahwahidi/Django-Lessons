@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+</head>
+<body>
+<table>
+{% for key, value in data.items %}
+    <tr>
+        <td> {{ key }}: </td> <td> {{ value }} </td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>
